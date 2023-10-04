@@ -20,8 +20,8 @@ Client_ID <- "EQXd71ehexzgHdSLgS0S"
 Client_Secret <- "xKgEo7TftY"
 
 #뉴스 URL 작성(UTF-8로 암호화, API 요청할 URL 정의, 검색결과는 20로 요청)
-query <- URLencode(iconv("경영통계", "euc-kr", "UTF-8"))
-url <- paste(searchUrl, "?query=", query, "&display=20", sep="")
+query <- URLencode(iconv("경영통계", to="UTF-8"))
+url <- paste(searchUrl, "?query=", query, "&display=100&start=1&sort=sim", sep="")
 
 #문서 다운로드_URI 다운로드하기
 doc <- getURL(url, 
@@ -83,3 +83,4 @@ wordcloud(nouns.df.sort[,1],
                 random.order=F,
                 random.color=T,
                 colors=rainbow(10))
+
